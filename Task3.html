@@ -1,0 +1,87 @@
+3.html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>TODO List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #0c0b0b;
+      }
+      
+      h1 {
+        text-align: center;
+        margin-bottom: 50px;
+        color: #1feb0d;
+      }
+      
+      form {
+        text-align: center;
+        background-color: #FFFFFF;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        margin: 0 auto;
+        width: 350px;
+      }
+      
+      input[type="text"] {
+        width: 300px;
+        height: 30px;
+        padding: 5px;
+        font-size: 16px;
+        margin-right: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      
+      button[type="submit"] {
+        height: 36px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #333;
+        color: #FFFFFF;
+        border-radius: 5px;
+        border: none;
+      }
+      
+      li {
+        list-style: none;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #06ec5f;
+        border-radius: 5px;
+        border: 8px solid #79173877;
+        box-shadow: 0 1px 3px rgba(223, 6, 6, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>To-Do List</h1>
+    <form>
+      <input type="text" id="task-input">
+      <button type="submit" id="add-task-button">Add Task</button>
+    </form>
+    <ul id="task-list">
+      <!-- Tasks will be added here dynamically -->
+    </ul>
+    <script>
+      const taskInput = document.getElementById("task-input");
+      const addTaskButton = document.getElementById("add-task-button");
+      const taskList = document.getElementById("task-list");
+      
+      addTaskButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        const task = taskInput.value;
+        if (!task) {
+          return;
+        }
+        const taskItem = document.createElement("li");
+        taskItem.innerHTML = task;
+        taskList.appendChild(taskItem);
+        taskInput.value = "";
+      });
+    </script>
+  </body>
+</html>
